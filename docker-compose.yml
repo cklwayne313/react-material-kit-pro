@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  webapp:
+    build:
+      context: .
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3001:3000
+    volumes:
+      # mount current dir into docker container
+      - ./:/usr/src/app
+      # ignore local node_modules, use container
+      - /usr/src/app/node_modules
